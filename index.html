@@ -43,6 +43,102 @@
 
     <script>
 
+        if ( !!window.caches ) {
+
+        //  Cache css.
+
+            var cssCache = "css";
+            caches.open( cssCache ).then( function( cache ){
+
+                var cacheName = cssCache;
+
+                var requests = [
+                    cssFolder + "bootstrap.min.css",
+                    cssFolder + "bootbox-dialoges.css",
+                    cssFolder + "side-panels.css",
+                    cssFolder + "messg.css",
+                    cssFolder + "spectrum.css",
+                    cssFolder + "colorpicker.css",
+                    cssFolder + "spinner.css",
+                    cssFolder + "jquery-ui.css",
+                    cssFolder + "alerts.css",
+                    cssFolder + "panel-ui.css",
+                    cssFolder + "anywhere3d.css",
+                    cssFolder + "joystick.css",
+                    cssFolder + "jquery.Jcrop.css",
+                    cssFolder + "menu-menubar.css",
+                ];
+
+                var options = {
+                    ignoreSearch:true,
+                    ignoreMethod:true,
+                    ignoreVary:true,
+                };
+
+                caching( cache, requests, options, cacheName )
+                .then( function( results ){
+                    debugMode && console.log( "%s-cache:%o", cacheName, results );
+                });
+
+            });
+
+        //  Cache js.
+
+            var javascriptsCache = "javascripts";
+            caches.open( javascriptsCache ).then( function( cache ){
+
+                var cacheName = javascriptsCache;
+
+                var requests = [
+                    jsFolder + "jquery.min.js",
+                    jsFolder + "jquery-ui.js",
+                    jsFolder + "jquery.lazy.js",
+                    jsFolder + "jquery.lazy.plugins.js",
+                    jsFolder + "jquery.Jcrop.js",
+                    jsFolder + "w3.js",
+                ];
+
+                var options = {
+                    ignoreSearch:true,
+                    ignoreMethod:true,
+                    ignoreVary:true,
+                };
+
+                caching( cache, requests, options, cacheName )
+                .then( function( results ){
+                    debugMode && console.log( "%s-cache:%o", cacheName, results );
+                });
+
+            });
+
+        //  Cache components.
+
+            var componentsCache = "components";
+            caches.open( componentsCache ).then( function( cache ){
+
+                var cacheName = componentsCache;
+
+                var requests = [
+                    rootFolder + "head-demo.html",
+                ];
+
+                var options = {
+                    ignoreSearch:true,
+                    ignoreMethod:true,
+                    ignoreVary:true,
+                };
+
+                caching( cache, requests, options, cacheName )
+                .then( function( results ){
+                    debugMode && console.log( "%s-cache:%o", cacheName, results );
+                });
+
+            });
+
+        }
+
+    //  end if (!!window.caches)
+
     //  caching.js (v1.1)
 
         function caching( cache, requests, options, cacheName ){
@@ -87,112 +183,6 @@
 
             }).catch( function(err){
                 console.error(err);
-            });
-
-        }
-
-    </script>
-
-    <script>
-
-        if ( !!window.caches ) {
-
-        //  Cache css.
-
-            var cssCache = "css";
-            caches.open( cssCache ).then( function( cache ){
-
-                var cacheName = cssCache;
-
-                var requests = [
-                    cssFolder + "bootstrap.min.css",
-                    cssFolder + "bootbox-dialoges.css",
-                    cssFolder + "side-panels.css",
-                    cssFolder + "messg.css",
-                    cssFolder + "spectrum.css",
-                    cssFolder + "colorpicker.css",
-                    cssFolder + "spinner.css",
-                    cssFolder + "jquery-ui.css",
-                    cssFolder + "alerts.css",
-                    cssFolder + "panel-ui.css",
-                    cssFolder + "anywhere3d.css",
-                    cssFolder + "joystick.css",
-                    cssFolder + "jquery.Jcrop.css",
-                    cssFolder + "menu-menubar.css",
-                ];
-
-                var options = {
-                    ignoreSearch:true,
-                    ignoreMethod:true,
-                    ignoreVary:true,
-                };
-
-                caching( cache, requests, options, cacheName )
-                .then( function( results ){
-                    debugMode && console.log( "%s-cache:%o", cacheName, results );
-                });
-
-            });
-
-        }
-
-        if ( !!window.caches ) {
-
-        //  Cache js.
-
-            var javascriptsCache = "javascripts";
-            caches.open( javascriptsCache ).then( function( cache ){
-
-                var cacheName = javascriptsCache;
-
-                var requests = [
-                    jsFolder + "jquery.min.js",
-                    jsFolder + "jquery-ui.js",
-                    jsFolder + "jquery.lazy.js",
-                    jsFolder + "jquery.lazy.plugins.js",
-                    jsFolder + "jquery.Jcrop.js",
-                    jsFolder + "w3.js",
-                ];
-
-                var options = {
-                    ignoreSearch:true,
-                    ignoreMethod:true,
-                    ignoreVary:true,
-                };
-
-                caching( cache, requests, options, cacheName )
-                .then( function( results ){
-                    debugMode && console.log( "%s-cache:%o", cacheName, results );
-                });
-
-            });
-
-        }
-
-        if ( !!window.caches ) {
-
-        //  Cache components.
-
-            var componentsCache = "components";
-            caches.open( componentsCache ).then( function( cache ){
-
-                var cacheName = componentsCache;
-
-                var requests = [
-                    rootFolder + "head-demo.html",
-                ];
-
-                var options = {
-                    ignoreSearch:true,
-                    ignoreMethod:true,
-                    ignoreVary:true,
-                };
-
-                caching( cache, requests, options, cacheName )
-                .then( function( results ){
-                    debugMode && console.log( "%s-cache:%o", cacheName, results );
-                });
-
             });
 
         }
