@@ -1,14 +1,15 @@
 <html>
 <head>
 
-    <script src="js/jquery.min.js"></script>
+    <script src="/demo/js/jquery.min.js"></script>
 
     <script>
 
         debugMode = true;
-
+        
         var jsFolder = "/demo/js/";
         var cssFolder = "/demo/css/";
+        var rootFolder = "/demo/";
         var navbarFolder = "/demo/navbar/";
         var scriptsFolder = "/demo/scripts/";
         var skinnedFolder = "/demo/skinned/";
@@ -75,6 +76,47 @@
 
         if ( !!window.caches ) {
 
+        //  Cache css.
+
+            var cssCache = "css";
+            caches.open( cssCache ).then( function( cache ){
+
+                var cacheName = scriptsCache;
+
+                var requests = [
+                    cssFolder + "bootstrap.min.css",
+                    cssFolder + "bootbox-dialoges.css",
+                    cssFolder + "side-panels.css",
+                    cssFolder + "messg.css",
+                    cssFolder + "spectrum.css",
+                    cssFolder + "colorpicker.css",
+                    cssFolder + "spinner.css",
+                    cssFolder + "jquery-ui.css",
+                    cssFolder + "alerts.css",
+                    cssFolder + "panel-ui.css",
+                    cssFolder + "anywhere3d.css",
+                    cssFolder + "joystick.css",
+                    cssFolder + "jquery.Jcrop.css",
+                    cssFolder + "menu-menubar.css",
+                ];
+
+                var options = {
+                    ignoreSearch:true,
+                    ignoreMethod:true,
+                    ignoreVary:true,
+                };
+
+                caching( cache, requests, options, cacheName )
+                .then( function( results ){
+                    debugMode && console.log( "%s-cache:%o", cacheName, results );
+                });
+
+            });
+
+        }
+
+        if ( !!window.caches ) {
+
         //  Cache js.
 
             var javascriptsCache = "javascripts";
@@ -83,12 +125,12 @@
                 var cacheName = javascriptsCache;
 
                 var requests = [
-                    "js/jquery.min.js",
-                    "js/jquery-ui.js",
-                    "js/jquery.lazy.js",
-                    "js/jquery.lazy.plugins.js",
-                    "js/jquery.Jcrop.js",
-                    "js/w3.js",
+                    jsFolder + "jquery.min.js",
+                    jsFolder + "jquery-ui.js",
+                    jsFolder + "jquery.lazy.js",
+                    jsFolder + "jquery.lazy.plugins.js",
+                    jsFolder + "jquery.Jcrop.js",
+                    jsFolder + "w3.js",
                 ];
 
                 var options = {
@@ -116,7 +158,7 @@
                 var cacheName = componentsCache;
 
                 var requests = [
-                    "head-demo.html",
+                    rootFolder + "head-demo.html",
                 ];
 
                 var options = {
@@ -139,7 +181,7 @@
     <script>
 
         var headSelector = "head";
-        var demoHeadComponent = "/demo/head-demo.html";
+        var demoHeadComponent = rootFolder + "head-demo.html";
         $(headSelector).load( demoHeadComponent, function(response, status, xhr){
             debugMode && console.log("head-demo:", status);
         })
