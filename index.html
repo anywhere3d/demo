@@ -5,7 +5,7 @@
 
     <script>
 
-        debugMode = true;
+        debugMode = false; // on production: false.
         
         var jsFolder = "/demo/js/";
         var cssFolder = "/demo/css/";
@@ -16,7 +16,7 @@
         var animationsFolder = "/demo/animations/";
         var componentsFolder = "/demo/components/";
         var menuComponentsFolder = "/demo/components/menu/";
-        $.ajaxSetup({ cache: false }); // on production: true.
+        $.ajaxSetup({ cache: true }); // on production: true.
 
     </script>
 
