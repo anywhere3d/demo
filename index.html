@@ -1,11 +1,32 @@
 <html>
 <head>
 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="description" contents="{{description}}">
+    <title>(index.html v0.4.1)</title>
+    <link rel="stylesheet" href="/demo/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/demo/css/bootbox-dialoges.css">
+    <link rel="stylesheet" href="/demo/css/side-panels.css">
+    <link rel="stylesheet" href="/demo/css/messg.css" >
+    <link rel="stylesheet" href="/demo/css/spectrum.css">
+    <link rel="stylesheet" href="/demo/css/colorpicker.css">
+    <link rel="stylesheet" href="/demo/css/spinner.css">
+    <link rel="stylesheet" href="/demo/css/jquery-ui.css">
+    <link rel="stylesheet" href="/demo/css/alerts.css">
+    <link rel="stylesheet" href="/demo/css/panel-ui.css">
+    <link rel="stylesheet" href="/demo/css/anywhere3d.css">
+    <link rel="stylesheet" href="/demo/css/joystick.css">
+    <link rel="stylesheet" href="/demo/css/jquery.Jcrop.css">
+    <link rel="stylesheet" href="/demo/css/menu-menubar.css">
+
     <script src="/demo/js/jquery.min.js"></script>
 
     <script>
 
-        debugMode = false; // on production: false.
+        debugMode = true; // on production: false.
         
         var jsFolder = "/demo/js/";
         var cssFolder = "/demo/css/";
@@ -175,16 +196,6 @@
             });
 
         }
-
-    </script>
-
-    <script>
-
-        var headSelector = "head";
-        var demoHeadComponent = rootFolder + "head-demo.html";
-        $(headSelector).load( demoHeadComponent, function(response, status, xhr){
-            debugMode && console.log("head-demo:", status);
-        })
 
     </script>
 
