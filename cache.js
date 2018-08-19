@@ -131,7 +131,7 @@
 
             return cache.keys().then( function( results ){
                 debugMode && results.forEach(function( item, i ){
-                    debugMode && console.log( "%i. %s-cache: %s", i, cacheName, item.url );
+                //  debugMode && console.log( "%i. %s-cache: %s", i, cacheName, item.url );
                 });
                 return results;
             });
